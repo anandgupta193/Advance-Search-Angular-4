@@ -1,0 +1,59 @@
+<div class="page-header">
+  <h1>Grace - Advance Search POC</h1>
+</div>
+<div class="container-fluid wall">
+
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Enter Search String" [(ngModel)]="queryString" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <button class="btn btn-primary">Normal Search</button>
+      <button class="btn btn-primary" (click)="openModal(template)">Advance Search</button>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="queryString" role="alert">
+          q: {{queryString}}
+        </div>
+      </div>
+    </div>
+
+
+
+    <ng-template #template>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Welcome to Advance Search</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <div class="query" *ngFor="let q of filters; index as i;">
+          {{q}}
+          <div class="cross" (click)="removeFilter(i)">X</div>
+        </div>
+
+        <app-search-filter (onQueryCreated)="appendQuery($event)"></app-search-filter>
+
+        <div class="row">
+          <div class="col-sm-4">
+              <button class="btn btn-success" (click)="createQuery()">Done - Create Final Query</button>
+          </div>
+          <div class="col-sm-4">
+          </div>
+          <div class="col-sm-4">
+          </div>
+
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
