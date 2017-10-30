@@ -10,10 +10,10 @@
       <label>Log Type</label>
     </div>
     <div class="col-sm-8">
-      <select [(ngModel)]="selectedCountry.id" (change)="onSelect($event.target.value)">
+      <select [(ngModel)]="selectedLogType.id" (change)="onSelect($event.target.value)">
         <option value="0">--Select--</option>
-        <ng-template ngFor let-country [ngForOf]="countries" let-i="index">
-          <option value={{country.id}}>{{country.name}}</option>
+        <ng-template ngFor let-logType [ngForOf]="logTypes" let-i="index">
+          <option value={{logType.id}}>{{logType.name}}</option>
         </ng-template>
       </select>
     </div>
@@ -28,7 +28,7 @@
     <div class="col-sm-8">
       <select (change)="onOperatorSelect($event.target.value)">
         <option value="0">--Select--</option>
-        <ng-template ngFor let-operator [ngForOf]="states" let-i="index">
+        <ng-template ngFor let-operator [ngForOf]="operators" let-i="index">
           <option value={{operator.id}}>{{operator.name}}</option>
         </ng-template>
       </select>
