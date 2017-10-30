@@ -23,7 +23,7 @@
 }
 
 .cross {
-  border: 2px solid red;
+  border: 2px solid gray;
   display: inline-block;
   padding: 6px;
   margin-top: 3px;
